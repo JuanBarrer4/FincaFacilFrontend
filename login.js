@@ -21,7 +21,7 @@ async function iniciarSesion() {
                 window.location.href = '/chivosList.html';
             }, 200);
         } else {
-            mensajeDiv.innerHTML = `<span>${data.mensaje}</span>`;
+            mensajeDiv.innerText = data.mensaje;
         }
     } catch (error) {
         console.error('Error:', error);
