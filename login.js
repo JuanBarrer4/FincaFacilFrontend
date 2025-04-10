@@ -13,10 +13,16 @@ async function iniciarSesion() {
         const mensajeDiv = document.getElementById('mensaje');
 
         if (res.ok) {
+            // Guardar datos en localStorage
             localStorage.setItem('usuario', data.usuario);
             localStorage.setItem('nombre', data.nombre);
             localStorage.setItem('rol', data.rol);
-            window.location.href = '/chivosList.html';
+
+            // Redirigir al nuevo puerto
+            setTimeout(() => {
+                window.location.href = '/chivosList.html';
+            }, 200); // 200 milisegundos
+
         } else {
             mensajeDiv.innerHTML = `<span>${data.mensaje}</span>`;
         }
