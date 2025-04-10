@@ -1,24 +1,20 @@
 {
-    "builds": [
+    "cleanUrls": true,
+    "rewrites": [
         {
-            "src": "login.html",
-            "use": "@vercel/static"
-        },
-        {
-            "src": "login.js",
-            "use": "@vercel/static"
+            "source": "/",
+            "destination": "/login.html"
         }
     ],
-    "routes": [
+    "headers": [
         {
-            "src": "/login.js",
-            "headers": {
-                "Content-Type": "application/javascript"
-            }
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/login.html"
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
         }
     ]
 }
