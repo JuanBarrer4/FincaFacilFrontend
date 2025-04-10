@@ -1,0 +1,24 @@
+{
+    "builds": [
+        {
+            "src": "login.html",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "login.js",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/login.js",
+            "headers": {
+                "Content-Type": "application/javascript"
+            }
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/login.html"
+        }
+    ]
+}
